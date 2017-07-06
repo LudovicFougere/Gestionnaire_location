@@ -1,0 +1,9 @@
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\bin\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.deps.json
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\bin\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.runtimeconfig.json
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\bin\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.runtimeconfig.dev.json
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\bin\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.dll
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.csprojResolveAssemblyReference.cache
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.AssemblyInfo.cs
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\bin\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.pdb
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.dll
+c:\users\ludovic\documents\visual studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\EFGetStarted.AspNetCore.ExistingDb.pdb
