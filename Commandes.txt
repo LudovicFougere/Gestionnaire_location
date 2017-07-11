@@ -1,1 +1,5 @@
-Scaffold-DbContext "Server=WIN-0SGFEHT92S6\SQLEXPRESS;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Server=WIN-0SGFEHT92S6\SQLEXPRESS;Database=Gestionnaire_location;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+ public Gestionnaire_locationContext(DbContextOptions<Gestionnaire_locationContext> options)
+            : base(options)
+        { }

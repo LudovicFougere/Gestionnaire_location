@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EFGetStarted.AspNetCore.ExistingDb.Models
+namespace Gestionaire_location.Models
 {
     public partial class Post
     {

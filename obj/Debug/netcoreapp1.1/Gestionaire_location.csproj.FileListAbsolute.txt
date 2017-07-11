@@ -7,3 +7,14 @@ C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.E
 C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\Gestionaire_location.AssemblyInfo.cs
 C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\Gestionaire_location.dll
 C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\EFGetStarted.AspNetCore.ExistingDb\obj\Debug\netcoreapp1.1\Gestionaire_location.pdb
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\Gestionaire_location.deps.json
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\Gestionaire_location.runtimeconfig.json
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\Gestionaire_location.runtimeconfig.dev.json
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\Gestionaire_location.dll
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\Gestionaire_location.pdb
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\DayPilot.Web.Mvc.dll
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\bin\Debug\netcoreapp1.1\DayPilot.Web.Mvc.xml
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.AssemblyInfo.cs
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.dll
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.pdb
+C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.csprojResolveAssemblyReference.cache

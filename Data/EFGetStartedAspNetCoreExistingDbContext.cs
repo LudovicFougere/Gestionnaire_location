@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Gestionaire_location.Models;
 
 namespace EFGetStarted.AspNetCore.ExistingDb.Models
 {
@@ -13,6 +14,6 @@ namespace EFGetStarted.AspNetCore.ExistingDb.Models
         {
         }
 
-        public DbSet<EFGetStarted.AspNetCore.ExistingDb.Models.Locataires> Locataires { get; set; }
+        public DbSet<Locataires> Locataires { get; set; }
     }
 }

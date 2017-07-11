@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using EFGetStarted.AspNetCore.ExistingDb.Models;
 using Microsoft.EntityFrameworkCore;
+using Gestionaire_location.Models;
 
 namespace EFGetStarted.AspNetCore.ExistingDb
 {
@@ -32,11 +33,11 @@ namespace EFGetStarted.AspNetCore.ExistingDb
             // Add framework services.
             services.AddMvc();
 
-            var connection = @"Server=WIN-0SGFEHT92S6\SQLEXPRESS;Database=Blogging;Trusted_Connection=True;";
-            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
+            var connection = @"Server=WIN-0SGFEHT92S6\SQLEXPRESS;Database=Gestionnaire_location;Trusted_Connection=True;";
+            services.AddDbContext<Gestionnaire_locationContext>(options => options.UseSqlServer(connection));
 
-            services.AddDbContext<LocataireContext>(options =>
-                    options.UseSqlServer(connection));
+            //services.AddDbContext<LocataireContext>(options =>
+            //        options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
