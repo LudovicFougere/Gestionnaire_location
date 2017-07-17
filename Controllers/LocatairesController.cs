@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using EFGetStarted.AspNetCore.ExistingDb.Models;
 using Gestionaire_location.Models;
 
-namespace EFGetStarted.AspNetCore.ExistingDb.Controllers
+namespace Gestionaire_location.Controllers
 {
     public class LocatairesController : Controller
     {
-        private readonly LocataireContext _context;
+        private readonly Gestionnaire_locationContext _context;
 
-        public LocatairesController(LocataireContext context)
+        public LocatairesController(Gestionnaire_locationContext context)
         {
             _context = context;    
         }

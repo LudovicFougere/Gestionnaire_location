@@ -15,5 +15,10 @@ namespace EFGetStarted.AspNetCore.ExistingDb.Models
         }
 
         public DbSet<Locataires> Locataires { get; set; }
+
+        public static implicit operator LocataireContext(Gestionnaire_locationContext v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
