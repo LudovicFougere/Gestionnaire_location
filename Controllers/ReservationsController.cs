@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace Gestionaire_location.Controllers
 
         public IActionResult Backend()
         {
-            return new Dps().CallBack(this);
+            return new Dps(_context).CallBack(this);
         }
 
         // GET: Reservations/Details/5
@@ -68,10 +69,12 @@ namespace Gestionaire_location.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateDebut,DateFin")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("Id,DateDebut,DateFin,Text")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
+                reservation.Eventstart = reservation.DateDebut;
+                reservation.Eventend = reservation.DateFin;
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -165,12 +168,45 @@ namespace Gestionaire_location.Controllers
         }
     }
 
-
     public class Dps : DayPilotScheduler
     {
+        private readonly Gestionnaire_locationContext _context;
+
+        public Dps(Gestionnaire_locationContext context)
+        {
+            _context = context;
+        }
+
         protected override void OnInit(InitArgs e)
         {
+            var reservations = _context.Reservation.ToList();
+            foreach (var reservation in  reservations)
+            {
+                Resources.Add(reservation.Text, reservation.Id.ToString());
+            }
+
+            Events = new List<EventData>
+            {
+                new EventData() { Id = "1", Resource = "A", Start = new DateTime(2016, 12, 10), End = new DateTime(2016, 12, 15), Text = "Event 1"},
+                new EventData() { Id = "2", Resource = "B", Start = new DateTime(2016, 12, 10), End = new DateTime(2016, 12, 15), Text = "Event 2"},
+            };
+
+            DataIdField = "Id";
+            DataStartField = "Start";
+            DataEndField = "End";
+            DataResourceField = "Resource";
+            DataTextField = "Text";
+
             Update(CallBackUpdateType.Full);
         }
+    }
+
+    public class EventData
+    {
+        public string Id;
+        public string Resource;
+        public DateTime Start;
+        public DateTime End;
+        public string Text;
     }
 }
