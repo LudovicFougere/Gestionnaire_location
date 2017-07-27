@@ -48,13 +48,6 @@ namespace Gestionaire_location.Models
                     .HasColumnName("Date_fin")
                     .HasColumnType("date");
 
-                entity.Property(e => e.Eventend)
-                    .HasColumnName("eventend")
-                    .HasColumnType("datetime");
-
-                entity.Property(e => e.Eventstart)
-                    .HasColumnName("eventstart")
-                    .HasColumnType("datetime");
 
                 entity.Property(e => e.Text)
                     .IsRequired()

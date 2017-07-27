@@ -73,8 +73,6 @@ namespace Gestionaire_location.Controllers
         {
             if (ModelState.IsValid)
             {
-                reservation.Eventstart = reservation.DateDebut;
-                reservation.Eventend = reservation.DateFin;
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -103,7 +101,7 @@ namespace Gestionaire_location.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DateDebut,DateFin")] Reservation reservation)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DateDebut,DateFin,Text")] Reservation reservation)
         {
             if (id != reservation.Id)
             {
@@ -180,22 +178,33 @@ namespace Gestionaire_location.Controllers
         protected override void OnInit(InitArgs e)
         {
             var reservations = _context.Reservation.ToList();
+            Events = new List<EventData>();
+            var myEvents = new List<EventData>();
             foreach (var reservation in  reservations)
             {
                 Resources.Add(reservation.Text, reservation.Id.ToString());
+                myEvents.Add( new EventData() { Id = reservation.Id.ToString(), Resource = reservation.Id.ToString(), Start = reservation.DateDebut , End = reservation.DateFin, Text = reservation.Text });
             }
 
-            Events = new List<EventData>
-            {
-                new EventData() { Id = "1", Resource = "A", Start = new DateTime(2016, 12, 10), End = new DateTime(2016, 12, 15), Text = "Event 1"},
-                new EventData() { Id = "2", Resource = "B", Start = new DateTime(2016, 12, 10), End = new DateTime(2016, 12, 15), Text = "Event 2"},
-            };
+            Events = myEvents;
 
             DataIdField = "Id";
             DataStartField = "Start";
             DataEndField = "End";
             DataResourceField = "Resource";
             DataTextField = "Text";
+
+
+            StartDate = new DateTime(2017, 07, 1);
+            Days = 31;
+
+            Scale = TimeScale.Day;
+
+            TimeHeaders = new TimeHeaderCollection()
+            {
+                new TimeHeader(GroupBy.Month),
+                new TimeHeader(GroupBy.Day)
+            };
 
             Update(CallBackUpdateType.Full);
         }

@@ -17,4 +17,3 @@ C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.E
 C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.AssemblyInfo.cs
 C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.dll
 C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.pdb
-C:\Users\Ludovic\Documents\Visual Studio 2017\Projects\EFGetStarted.AspNetCore.ExistingDb\Gestionnaire_location\obj\Debug\netcoreapp1.1\Gestionaire_location.csprojResolveAssemblyReference.cache
