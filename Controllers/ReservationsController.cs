@@ -174,8 +174,7 @@ namespace Gestionaire_location.Controllers
     public class Dps : DayPilotScheduler
     {
         private readonly Gestionnaire_locationContext _context;
-        private int? _addMonth = 0;
-
+       
         public Dps(Gestionnaire_locationContext context)
         {
             _context = context;
@@ -202,7 +201,7 @@ namespace Gestionaire_location.Controllers
             DataTextField = "Text";
 
 
-            StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + (int)_addMonth, 1);
+            StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             Days = 31;
 
             Scale = TimeScale.Day;
@@ -279,8 +278,6 @@ namespace Gestionaire_location.Controllers
                 new TimeHeader(GroupBy.Day)
             };
         }
-
-
     }
 
     public class EventData

@@ -8,16 +8,6 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <script type="text/javascript">
-        function addMonth()
-        {
-            $.ajax({
-                url: '/Reservations/AddMonth',
-                //data: { }
-            }).done(function() {
-                alert('Added'); 
-            });
-        }
-
         function eventMoving(args) {
             if (args.e.resource() === "A" && args.resource === "B") {
                 args.left.enabled = false;
@@ -48,6 +38,9 @@
     <thead>
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DateDebut)
         </th>
         <th>
@@ -60,6 +53,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateDebut)
             </td>
