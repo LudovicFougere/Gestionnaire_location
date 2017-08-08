@@ -7,32 +7,58 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <script type="text/javascript">
+        function addMonth()
+        {
+            $.ajax({
+                url: '/Reservations/AddMonth',
+                //data: { }
+            }).done(function() {
+                alert('Added'); 
+            });
+        }
+
+        function eventMoving(args) {
+            if (args.e.resource() === "A" && args.resource === "B") {
+                args.left.enabled = false;
+                args.right.html = "You can't move an event from resource A to B";
+
+                args.allowed = false;
+            }
+        };
+    </script>
 </head>
 <body>
+<p>
+    <div class="note">
+        <a href="javascript:dp.commandCallBack('previous');">Precedent</a> | 
+        <a href="javascript:dp.commandCallBack('today');">Aujourd'hui</a> |
+        <a href="javascript:dp.commandCallBack('next');">Suivant</a>
+    </div>
+</p>
 <p>
     <a asp-action="Create">Create New</a>
     @addTagHelper "*, DayPilot.AspNetCore"
 
     <daypilot-scheduler id="dp"
-                        backend-url="/Reservations/Backend"
-    />    
-</p>
-  
+                        backend-url="/Reservations/Backend" event-move-handling="Notify"/>
 
+</p>
 <table class="table">
     <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateDebut)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateFin)
-                </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.DateDebut)
@@ -46,7 +72,7 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
 </body>

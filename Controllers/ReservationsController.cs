@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using Gestionaire_location.Models;
 using DayPilot.AspNetCore;
 using DayPilot.AspNetCore.Enums;
 using DayPilot.AspNetCore.Events.Scheduler;
+using System.Data;
 
 namespace Gestionaire_location.Controllers
 {
@@ -29,16 +31,19 @@ namespace Gestionaire_location.Controllers
         }
 
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+       public IActionResult Light()
+        {
+            return View();
+        }
 
 
         public IActionResult Backend()
         {
             return new Dps(_context).CallBack(this);
         }
+
+   
+
 
         // GET: Reservations/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -169,10 +174,12 @@ namespace Gestionaire_location.Controllers
     public class Dps : DayPilotScheduler
     {
         private readonly Gestionnaire_locationContext _context;
+        private int? _addMonth = 0;
 
         public Dps(Gestionnaire_locationContext context)
         {
             _context = context;
+    
         }
 
         protected override void OnInit(InitArgs e)
@@ -195,7 +202,7 @@ namespace Gestionaire_location.Controllers
             DataTextField = "Text";
 
 
-            StartDate = new DateTime(2017, 07, 1);
+            StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + (int)_addMonth, 1);
             Days = 31;
 
             Scale = TimeScale.Day;
@@ -208,6 +215,72 @@ namespace Gestionaire_location.Controllers
 
             Update(CallBackUpdateType.Full);
         }
+
+        protected override void OnEventMove(EventMoveArgs e)
+        {
+            var item = _context.Reservation
+                .SingleOrDefault(m => m.Id == Convert.ToInt32(e.Id));
+            
+            if (item != null)
+            {
+                item.DateDebut = e.NewStart;
+                item.DateFin = e.NewEnd;
+                _context.Update(item);
+                _context.SaveChanges();
+            }
+        }
+
+        protected override void OnCommand(CommandArgs e)
+        {
+            switch (e.Command)
+            {
+                case "previous":
+                    StartDate = StartDate.AddMonths(-1);
+                    LoadData();
+                    Update(CallBackUpdateType.Full);
+                    break;
+                case "today":
+                    StartDate = DateTime.Today;
+                    LoadData();
+                    Update(CallBackUpdateType.Full);
+                    break;
+                case "next":
+                    StartDate = StartDate.AddMonths(1);
+                    LoadData();
+                    Update(CallBackUpdateType.Full);
+                    break;
+            }
+        }
+
+        private void LoadData()
+        {
+            Resources = new ResourceCollection();
+            var reservations = _context.Reservation.ToList();
+            Events = new List<EventData>();
+            var myEvents = new List<EventData>();
+            foreach (var reservation in reservations)
+            {
+                Resources.Add(reservation.Text, reservation.Id.ToString());
+                myEvents.Add(new EventData() { Id = reservation.Id.ToString(), Resource = reservation.Id.ToString(), Start = reservation.DateDebut, End = reservation.DateFin, Text = reservation.Text });
+            }
+
+            Events = myEvents;
+            DataIdField = "Id";
+            DataStartField = "Start";
+            DataEndField = "End";
+            DataResourceField = "Resource";
+            DataTextField = "Text";
+
+            Scale = TimeScale.Day;
+
+            TimeHeaders = new TimeHeaderCollection()
+            {
+                new TimeHeader(GroupBy.Month),
+                new TimeHeader(GroupBy.Day)
+            };
+        }
+
+
     }
 
     public class EventData
