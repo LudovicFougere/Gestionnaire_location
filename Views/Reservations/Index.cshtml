@@ -7,16 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-    <script type="text/javascript">
-        function eventMoving(args) {
-            if (args.e.resource() === "A" && args.resource === "B") {
-                args.left.enabled = false;
-                args.right.html = "You can't move an event from resource A to B";
-
-                args.allowed = false;
-            }
-        };
-    </script>
+    <script src="~/js/daypilot-modal-2.7.js"></script>
 </head>
 <body>
 <p>
@@ -29,11 +20,32 @@
 <p>
     <a asp-action="Create">Create New</a>
     @addTagHelper "*, DayPilot.AspNetCore"
-
-    <daypilot-scheduler id="dp"
-                        backend-url="/Reservations/Backend" event-move-handling="Notify"/>
-
+    <div id="dps" >
+        <daypilot-scheduler id="dp"
+                        backend-url="/Reservations/Backend" event-move-handling="Notify" event-click-handling="JavaScript" event-click-java-script="editEvent(args.e.value())" /> 
+    </div>
 </p>
+    
+<script type="text/javascript">
+    function editEvent(id) {
+         
+         
+        var modal = new DayPilot.Modal();
+        modal.top = 60;
+        modal.width = 300;
+        modal.opacity = 70;
+        modal.border = "10px solid #d0d0d0";
+        modal.closed = function() {
+            if(this.result == "OK") {
+                dps.commandCallBack('refresh');
+            }
+            dps.clearSelection();
+        };
+        modal.height = 250;
+        modal.zIndex = 100;
+        modal.showUrl("Reservations/Edit/" + id);
+    }
+</script>
 <table class="table">
     <thead>
     <tr>

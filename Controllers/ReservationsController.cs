@@ -131,8 +131,9 @@ namespace Gestionaire_location.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Index");
+                
             }
+            
             return View(reservation);
         }
 
@@ -169,6 +170,7 @@ namespace Gestionaire_location.Controllers
         {
             return _context.Reservation.Any(e => e.Id == id);
         }
+
     }
 
     public class Dps : DayPilotScheduler
@@ -199,7 +201,9 @@ namespace Gestionaire_location.Controllers
             DataEndField = "End";
             DataResourceField = "Resource";
             DataTextField = "Text";
-
+            OnEventDoubleClick();
+            
+            
 
             StartDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             Days = 31;
@@ -213,6 +217,11 @@ namespace Gestionaire_location.Controllers
             };
 
             Update(CallBackUpdateType.Full);
+        }
+
+        private string  OnEventDoubleClick()
+        {
+            return "test";
         }
 
         protected override void OnEventMove(EventMoveArgs e)
@@ -247,6 +256,9 @@ namespace Gestionaire_location.Controllers
                     StartDate = StartDate.AddMonths(1);
                     LoadData();
                     Update(CallBackUpdateType.Full);
+                    break;
+                case "refresh":
+                    UpdateWithMessage("Refreshed");
                     break;
             }
         }
