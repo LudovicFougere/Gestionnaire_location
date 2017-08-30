@@ -36,10 +36,7 @@
         modal.opacity = 70;
         modal.border = "10px solid #d0d0d0";
         modal.closed = function() {
-            if(this.result == "OK") {
-                dps.commandCallBack('refresh');
-            }
-            dps.clearSelection();
+            dp.commandCallBack('refresh');
         };
         modal.height = 250;
         modal.zIndex = 100;

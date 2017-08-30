@@ -258,7 +258,8 @@ namespace Gestionaire_location.Controllers
                     Update(CallBackUpdateType.Full);
                     break;
                 case "refresh":
-                    UpdateWithMessage("Refreshed");
+                    LoadData();
+                    UpdateWithMessage("Refreshed", CallBackUpdateType.Full);
                     break;
             }
         }
